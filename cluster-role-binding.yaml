@@ -1,0 +1,15 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  labels:
+    app.kubernetes.io/component: exporter
+    app.kubernetes.io/name: crane-recommendations-exporter
+  name: crane-recommendations-exporter
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: crane-recommendations-exporter
+subjects:
+- kind: ServiceAccount
+  name: crane-recommendations-exporter
+  namespace: kube-system
